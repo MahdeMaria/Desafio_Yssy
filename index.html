@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Mapa Yssy</title>
+     <!--Este é um script que carrega a API do Google Maps e insere um mapa interativo na página. 
+    A chave de API foi gerada pela Google Cloud--> 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIQc2QJFm2Ck7C8zBCmYonzKg7FpXQ1bM"></script>
     <style>
       #map {
@@ -14,21 +16,24 @@
     </style>
   </head>
 
+   <!--Aqui é o cabeçalho da pagina, achei que seria interesante colocar um titulo -->
   <body>
     <h1 class="titulo">
       Yssy Google Maps Challenge
     </h1>
     <div id="map"></div>
-
-
-
+    
+    
+     <!-- No script, criei uma função que junto com o fetch vai acessar a API do JSON 
+      e obter as coordenada do arquivo.-->
+    
     <script>
        async function getLocals() {
         const response = await fetch("http://127.0.0.1:5000/data",)
         return await response.json()
       }
      
-
+    /* Esta outra função foi criada para exibir os pontos do mapa e adicionar o marcador */
       async function initMap() {
         const locals = await getLocals()
         const map = new google.maps.Map(document.getElementById('map'), {
