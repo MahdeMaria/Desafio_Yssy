@@ -21,3 +21,5 @@ def get_data():
 #Criando uma condicional para verificar se o modulo esta sendo executado diretamente
 if __name__ == '__main__':
     app.run(debug=True)
+#No terminal: pip install -r requirements.txt  
+# Python .\main.py
