@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapa Yssy</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIQc2QJFm2Ck7C8zBCmYonzKg7FpXQ1bM"></script>
+    <style>
+      #map {
+        height: 600px;
+        width: 100%;
+      }
+      .titulo{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="titulo">
+      Yssy Google Maps Challenge
+    </h1>
+    <div id="map"></div>
+
+
+
+    <script>
+       async function getLocals() {
+        const response = await fetch("http://127.0.0.1:5000/data",)
+        return await response.json()
+      }
+     
+
+      async function initMap() {
+        const locals = await getLocals()
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: locals[1].coordinates
+        });
+        locals.forEach(local => {
+          const marker = new google.maps.Marker({
+          position: local.coordinates,
+          label: local.name,
+          map: map
+        });
+        });
+        
+      }
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIQc2QJFm2Ck7C8zBCmYonzKg7FpXQ1bM&callback=initMap">
+    </script>
+  </body>
+
+
+</html>
