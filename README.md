@@ -6,5 +6,6 @@ Para rodar esse projeto na sua maquina você vai precisar instalar:
 
 ```
 Python
-Requirements.txt (nesse arquivo esta uma lista de todos os pacotes utilizados no meu ambiente virtual)
+Requirements.txt (nesse arquivo esta uma lista de todos os pacotes 
+utilizados no ambiente virtual)
 
